@@ -1,0 +1,33 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+	<f:section name="Main">
+		<div class="brightsidegallery template-{data.tx_brightsidecontent_template}">
+			<f:for each="{assets}" as="image">
+				<div class="item">
+					<f:if condition="{data.image_zoom}">
+						<a href="{f:uri.image(image:'{image}', width:'1800', cropVariant:'{data.tx_brightsidecontent_cropratiozoom}')}" class="lightbox">
+					</f:if>
+						<f:image image="{image}" class="image"
+							cropVariant="{data.tx_brightsidecontent_cropratiothumb}"
+							width="500"
+							alt="{f:if(condition:'{image.properties.alternative}', then:'{image.properties.alternative -> f:format.stripTags()}', else:'{image.properties.title -> f:format.stripTags()}')}"
+							additionalAttributes="{srcset: '{f:uri.image(image:\'{image}\', cropVariant:\'{data.tx_brightsidecontent_cropratiothumb}\', width:\'1000\')}'}"
+							title="{image.properties.title -> f:format.stripTags()}"
+						/>
+					<f:if condition="{data.image_zoom}">
+						</a>
+					</f:if>
+					<f:if condition="{data.tx_brightsidecontent_showtitle} || {data.tx_brightsidecontent_showdesc}">
+						<f:if condition="{image.properties.title} || {image.properties.description}">
+							<figcaption>
+								<f:if condition="{data.tx_brightsidecontent_showtitle}"><f:format.raw><span class="brightsidegallery-title">{image.properties.title -> f:format.stripTags(allowedTags: "<b><strong><br />")}</span></f:format.raw></f:if>
+								<f:if condition="{data.tx_brightsidecontent_showdesc}"><f:format.raw><span class="brightsidegallery-desc">{image.properties.description -> f:format.stripTags(allowedTags: "<b><strong><br />")}</span></f:format.raw></f:if>
+							</figcaption>
+						</f:if>
+					</f:if>
+				</div>
+				<div class="space"></div>
+			</f:for>
+		</div>
+	</f:section>
+</html>

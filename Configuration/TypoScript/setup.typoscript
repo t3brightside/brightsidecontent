@@ -1,0 +1,61 @@
+page.includeCSS.brightsidegallery = {$brightsidegallery.styles}
+page.includeCSS.brightsideslide = {$brightsideslide.styles}
+
+
+tt_content.brightsidegallery =< lib.contentElement
+tt_content.brightsidegallery.templateRootPaths.10 = EXT:brightsidecontent/Resources/Private/Templates/
+tt_content.brightsidegallery.templateRootPaths.20 = {$brightsidecontent.templateRootPaths}
+tt_content.brightsidegallery.partialRootPaths.10 = EXT:brightsidecontent/Resources/Private/Partials/
+tt_content.brightsidegallery.partialRootPaths.20 = {$brightsidecontent.partialRootPaths}
+tt_content.brightsidegallery {
+    templateName = Brightsidegallery
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = assets
+            as = assets
+        }
+    }
+    settings {
+        maxImageWidth = {$brightsidegallery.maxImageWidth}
+    }
+#    extbase {
+#        pluginName = Gallery Content
+#        controllerName = GalleryContent
+#        controllerExtensionName = brightsidegallery
+#        controllerActionName = show
+#    }
+    stdWrap {
+        editIcons = tt_content: header [header_layout], tt_content
+        editIcons.iconTitle.data = LLL:EXT:fluid_styled_content/Resources/Private/Language/FrontendEditing.xlf:editIcon.menu
+    }
+}
+
+tt_content.brightsideslide =< lib.contentElement
+tt_content.brightsideslide.templateRootPaths.10 = EXT:brightsidecontent/Resources/Private/Templates/
+tt_content.brightsideslide.templateRootPaths.20 = {$brightsidecontent.templateRootPaths}
+tt_content.brightsideslide.partialRootPaths.10 = EXT:brightsidecontent/Resources/Private/Partials/
+tt_content.brightsideslide.partialRootPaths.20 = {$brightsidecontent.partialRootPaths}
+tt_content.brightsideslide {
+    templateName = Brightsideslide
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = assets
+            as = assets
+        }
+    }
+    settings {
+        maxImageWidth = {$brightsidegallery.maxImageWidth}
+    }
+#    extbase {
+#        pluginName = Gallery Content
+#        controllerName = GalleryContent
+#        controllerExtensionName = brightsidegallery
+#        controllerActionName = show
+#    }
+    stdWrap {
+        editIcons = tt_content: header [header_layout], tt_content
+        editIcons.iconTitle.data = LLL:EXT:fluid_styled_content/Resources/Private/Language/FrontendEditing.xlf:editIcon.menu
+    }
+}

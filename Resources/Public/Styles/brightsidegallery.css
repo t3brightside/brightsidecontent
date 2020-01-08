@@ -1,0 +1,88 @@
+.brightsidegallery * {
+    box-sizing: border-box;
+}
+
+.brightsidegallery {
+    width: 100%;
+    float: left;
+}
+
+.brightsidegallery .item img {
+    width: 100%;
+    height: auto;
+}
+
+.brightsidegallery .item {
+    width: 31.333%;
+    float: left;
+    transition-property: width;
+    transition-duration: 0.2s;
+}
+
+.brightsidegallery.template-0 .item {
+    width: 32.666%;
+}
+
+.brightsidegallery .item a {
+    float: left;
+    width: 100%;
+    line-height: 0;
+}
+
+.brightsidegallery figcaption {
+    display: block;
+    background-color: #F2F2F2;
+    padding: 2.35em 1.5em;
+    clear: both;
+    text-align: center;
+}
+
+.brightsidegallery .item a:hover {
+    text-decoration: none;
+}
+
+.brightsidegallery.template-0 .space {
+    width: 1%;
+    float: left;
+    height: 0.85vw;
+    min-height: 1px;
+    max-height: 14.23px;
+}
+
+.brightsidegallery.template-1 .space {
+    width: 3%;
+    float: left;
+    max-height: 48px;
+    height: 2.8vw;
+    min-height: 1px;
+}
+
+.brightsidegallery .space:nth-child(3n) {
+    width: 100%
+}
+
+/* Less columns for smaller width, breakpoints controlled in TS constants*/
+.brightsidegallery.break-two .item {
+    width: 47.5%
+}
+
+.brightsidegallery.break-two .space:nth-child(2n) {
+    width: 5%
+}
+
+.brightsidegallery.break-two .space:nth-child(4n) {
+    width: 100%
+}
+
+.brightsidegallery.break-one .item {
+    width: 100%
+}
+
+.brightsidegallery.break-one .space {
+    display: block;
+    width: 100%;
+}
+
+.brightsidegallery .space:last-child {
+    display: none;
+}

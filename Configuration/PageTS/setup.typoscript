@@ -1,0 +1,56 @@
+
+mod.wizards.newContentElement.wizardItems.common {
+   elements {
+      brightsidegallery {
+         iconIdentifier = mimetypes-x-content-brightsidegallery
+         title = Gallery
+         description = Image gallery content element
+         tt_content_defValues {
+            CType = brightsidegallery
+         }
+      }
+   }
+   show := addToList(brightsidegallery)
+}
+
+mod.wizards.newContentElement.wizardItems.common {
+   elements {
+      brightsideslide {
+         iconIdentifier = mimetypes-x-content-brightsideslide
+         title = Slide
+         description = Slide content element
+         tt_content_defValues {
+            CType = brightsideslide
+         }
+      }
+   }
+   show := addToList(brightsideslide)
+}
+
+TCEFORM.tt_content.tx_brightsidecontent_template.addItems {
+	0 = Template 1
+	1 = Template 2
+}
+
+TCEFORM.tt_content.tx_slidecontent_template.addItems {
+	0 = Template 1
+	1 = Template 2
+}
+
+TCEFORM.tt_content.tx_brightsidecontent_cropratiothumb.addItems {
+	default = Default
+    landscape = Landscape (5:3)
+	square = Square (1:1)
+    portrait = Portrait (3:4)
+    tower = Tower (16:9)
+    none = None
+}
+
+TCEFORM.tt_content.tx_brightsidecontent_cropratiozoom.addItems {
+    default = Default
+    landscape = Landscape (5:3)
+	square = Square (1:1)
+    portrait = Portrait (3:4)
+    tower = Tower (16:9)
+    none = None
+}
