@@ -4,6 +4,7 @@
   call_user_func(function () {
       $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['brightsidegallery'] =  'mimetypes-x-content-brightsidegallery';
       $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['brightsideslide'] =  'mimetypes-x-content-brightsideslide';
+      $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['brightsidedownloads'] =  'mimetypes-x-content-brightsidedownloads';
 
       \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
       "tt_content",
@@ -28,6 +29,30 @@
       'brightsidegallery',
       'after'
     );
+
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    "tt_content",
+    "CType",
+    [
+      "Card",
+      "brightsidecard",
+      "mimetypes-x-content-brightsidecard"
+    ],
+    'brightsideslide',
+    'after'
+  );
+
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    "tt_content",
+    "CType",
+    [
+      "Downloads",
+      "brightsidedownloads",
+      "mimetypes-x-content-brightsidedownloads"
+    ],
+    'brightsidecard',
+    'after'
+  );
 
     $GLOBALS['TCA']['tt_content']['columns']['tx_brightsidecontent_template'] = [
         'exclude' => 1,
@@ -204,11 +229,21 @@
                         ],
                     ],
                 ],
+                'slide' => [
+                    'title' => 'Slide',
+                    'selectedRatio' => '190:77',
+                    'allowedAspectRatios' => [
+                        '190:77' => [
+                            'title' => 'Slide',
+                            'value' => 190 / 77,
+                        ],
+                    ],
+                ],
             ],
         ],
     ];
 
-    // Configure the default backend fields for the content element
+    // Configure the default backend fields for the gallery content element
     $GLOBALS['TCA']['tt_content']['types']['brightsidegallery'] = array(
        'showitem' => '
              --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.general;general,
@@ -237,7 +272,7 @@
         image_zoom,tx_brightsidecontent_cropratiozoom,tx_brightsidecontent_showtitle,tx_brightsidecontent_showdesc,
     ';
 
-    // Configure the default backend fields for the content element
+    // Configure the default backend fields for the slide content element
     $GLOBALS['TCA']['tt_content']['types']['brightsideslide'] = array(
        'showitem' => '
              --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.general;general,
@@ -262,9 +297,69 @@
 
     $GLOBALS['TCA']['tt_content']['palettes']['brightsideslideSettings']['showitem'] = '
         header,
+        --linebreak--,subheader,
         --linebreak--,bodytext,
         --linebreak--,tx_brightsidecontent_link,tx_brightsidecontent_linktext,
         --linebreak--,assets,
+    ';
+
+    // Configure the default backend fields for the slide content element
+    $GLOBALS['TCA']['tt_content']['types']['brightsidecard'] = array(
+       'showitem' => '
+             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.general;general,
+             --palette--;Content;brightsidecardSettings,
+             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+               --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
+               --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
+             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.accessibility,
+               --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.menu_accessibility;menu_accessibility,
+             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+               --palette--;;language,
+             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+               --palette--;;hidden,
+               --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
+               categories,
+             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
+               rowDescription,
+             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+             --div--;LLL:EXT:gridelements/Resources/Private/Language/locallang_db.xlf:gridElements, tx_gridelements_container, tx_gridelements_columns
+    ');
+
+    $GLOBALS['TCA']['tt_content']['palettes']['brightsidecardSettings']['showitem'] = '
+        header,
+        --linebreak--,subheader,
+        --linebreak--,bodytext,
+        --linebreak--,tx_brightsidecontent_template,
+        --linebreak--,assets,
+    ';
+
+    // Configure the default backend fields for the downloads content element
+    $GLOBALS['TCA']['tt_content']['types']['brightsidedownloads'] = array(
+        'showitem' => '
+            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+                --palette--;;general,
+                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.header;header,
+                --palette--;;brightsidedownloadsSettings,
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+                --palette--;;frames,
+                --palette--;;appearanceLinks,
+            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+                --palette--;;language,
+            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+                --palette--;;hidden,
+                --palette--;;access,
+            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
+                categories,
+            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
+                rowDescription,
+            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+        ');
+
+    $GLOBALS['TCA']['tt_content']['palettes']['brightsidedownloadsSettings']['showitem'] = '
+        --linebreak--,tx_brightsidecontent_template,
+        --linebreak--,media,
+        --linebreak--,
     ';
 
 });

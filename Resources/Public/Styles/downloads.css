@@ -1,0 +1,54 @@
+/* Template 0 */
+.brightsidedownloads.template-0 .extension {
+    text-transform: uppercase;
+}
+
+.brightsidedownloads.template-0 .item {
+    padding: 2.9em 2em;
+    background-color: #F2F2F2;
+    position: relative;
+}
+
+.brightsidedownloads.template-0 .item .btn {
+    position: absolute;
+    right: 2em;
+    top: 1.2em;
+}
+/* Template 1 */
+.brightsidedownloads.template-1 .item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    border-top: 1px solid #ccc;
+    padding: 2em;
+}
+
+.brightsidedownloads.template-1 .item:last-child {
+    border-bottom: 1px solid #ccc;
+}
+
+.brightsidedownloads.template-1 .item>div {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+.brightsidedownloads.template-1>.item>.desc {
+    text-align: left;
+}
+
+.brightsidedownloads.template-1>.item>.link {
+    text-align: right;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.125em;
+}
+
+.brightsidedownloads.template-1>.item>.link i {
+    font-size: 1.313em;
+    margin-right: 0.6em;
+    vertical-align: middle;
+    margin-top: -2px;
+}

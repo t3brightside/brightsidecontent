@@ -1,12 +1,14 @@
-page.includeCSS.brightsidegallery = {$brightsidegallery.styles}
-page.includeCSS.brightsideslide = {$brightsideslide.styles}
+page.includeCSS.brightsidecontentgallery = {$brightsidecontent.gallery.styles}
+page.includeCSS.brightsidecontentslide = {$brightsidecontent.slide.styles}
+page.includeCSS.brightsidecontentdownloads = {$brightsidecontent.downloads.styles}
 
+lib.brightsidecontent =< lib.contentElement
+lib.brightsidecontent.templateRootPaths.10 = EXT:brightsidecontent/Resources/Private/Templates/
+lib.brightsidecontent.templateRootPaths.20 = {$brightsidecontent.templateRootPaths}
+lib.brightsidecontent.partialRootPaths.10 = EXT:brightsidecontent/Resources/Private/Partials/
+lib.brightsidecontent.partialRootPaths.20 = {$brightsidecontent.partialRootPaths}
 
-tt_content.brightsidegallery =< lib.contentElement
-tt_content.brightsidegallery.templateRootPaths.10 = EXT:brightsidecontent/Resources/Private/Templates/
-tt_content.brightsidegallery.templateRootPaths.20 = {$brightsidecontent.templateRootPaths}
-tt_content.brightsidegallery.partialRootPaths.10 = EXT:brightsidecontent/Resources/Private/Partials/
-tt_content.brightsidegallery.partialRootPaths.20 = {$brightsidecontent.partialRootPaths}
+tt_content.brightsidegallery =< lib.brightsidecontent
 tt_content.brightsidegallery {
     templateName = Brightsidegallery
     dataProcessing {
@@ -16,26 +18,13 @@ tt_content.brightsidegallery {
             as = assets
         }
     }
-    settings {
-        maxImageWidth = {$brightsidegallery.maxImageWidth}
-    }
-#    extbase {
-#        pluginName = Gallery Content
-#        controllerName = GalleryContent
-#        controllerExtensionName = brightsidegallery
-#        controllerActionName = show
-#    }
     stdWrap {
         editIcons = tt_content: header [header_layout], tt_content
         editIcons.iconTitle.data = LLL:EXT:fluid_styled_content/Resources/Private/Language/FrontendEditing.xlf:editIcon.menu
     }
 }
 
-tt_content.brightsideslide =< lib.contentElement
-tt_content.brightsideslide.templateRootPaths.10 = EXT:brightsidecontent/Resources/Private/Templates/
-tt_content.brightsideslide.templateRootPaths.20 = {$brightsidecontent.templateRootPaths}
-tt_content.brightsideslide.partialRootPaths.10 = EXT:brightsidecontent/Resources/Private/Partials/
-tt_content.brightsideslide.partialRootPaths.20 = {$brightsidecontent.partialRootPaths}
+tt_content.brightsideslide =< lib.brightsidecontent
 tt_content.brightsideslide {
     templateName = Brightsideslide
     dataProcessing {
@@ -45,15 +34,38 @@ tt_content.brightsideslide {
             as = assets
         }
     }
-    settings {
-        maxImageWidth = {$brightsidegallery.maxImageWidth}
+    stdWrap {
+        editIcons = tt_content: header [header_layout], tt_content
+        editIcons.iconTitle.data = LLL:EXT:fluid_styled_content/Resources/Private/Language/FrontendEditing.xlf:editIcon.menu
     }
-#    extbase {
-#        pluginName = Gallery Content
-#        controllerName = GalleryContent
-#        controllerExtensionName = brightsidegallery
-#        controllerActionName = show
-#    }
+}
+
+tt_content.brightsidecard =< lib.brightsidecontent
+tt_content.brightsidecard {
+    templateName = Brightsidecard
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = assets
+            as = assets
+        }
+    }
+    stdWrap {
+        editIcons = tt_content: header [header_layout], tt_content
+        editIcons.iconTitle.data = LLL:EXT:fluid_styled_content/Resources/Private/Language/FrontendEditing.xlf:editIcon.menu
+    }
+}
+
+tt_content.brightsidedownloads =< lib.brightsidecontent
+tt_content.brightsidedownloads {
+    templateName = Brightsidedownloads
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = media
+            as = media
+        }
+    }
     stdWrap {
         editIcons = tt_content: header [header_layout], tt_content
         editIcons.iconTitle.data = LLL:EXT:fluid_styled_content/Resources/Private/Language/FrontendEditing.xlf:editIcon.menu

@@ -18,7 +18,7 @@ mod.wizards.newContentElement.wizardItems.common {
       brightsideslide {
          iconIdentifier = mimetypes-x-content-brightsideslide
          title = Slide
-         description = Slide content element
+         description = Content for slide containers
          tt_content_defValues {
             CType = brightsideslide
          }
@@ -27,14 +27,52 @@ mod.wizards.newContentElement.wizardItems.common {
    show := addToList(brightsideslide)
 }
 
-TCEFORM.tt_content.tx_brightsidecontent_template.addItems {
-	0 = Template 1
-	1 = Template 2
+mod.wizards.newContentElement.wizardItems.common {
+   elements {
+      brightsidecard {
+         iconIdentifier = mimetypes-x-content-brightsidecard
+         title = Card
+         description = Content card with preset layout
+         tt_content_defValues {
+            CType = brightsidecard
+         }
+      }
+   }
+   show := addToList(brightsidecard)
 }
 
-TCEFORM.tt_content.tx_slidecontent_template.addItems {
-	0 = Template 1
-	1 = Template 2
+mod.wizards.newContentElement.wizardItems.common {
+   elements {
+      brightsidedownloads {
+         iconIdentifier = mimetypes-x-content-brightsidedownloads
+         title = Downloads
+         description = File lists
+         tt_content_defValues {
+            CType = brightsidedownloads
+         }
+      }
+   }
+   show := addToList(brightsidedownloads)
+}
+
+TCEFORM.tt_content.tx_brightsidecontent_template.types.brightsidegallery.addItems {
+	0 = Gallery 1
+	1 = Gallery 2
+}
+
+TCEFORM.tt_content.tx_brightsidecontent_template.types.brightsideslide.addItems {
+    0 = Slide 1
+    1 = Slide 2
+}
+
+TCEFORM.tt_content.tx_brightsidecontent_template.types.brightsidecard.addItems {
+	0 = Card 1
+	1 = Card 2
+}
+
+TCEFORM.tt_content.tx_brightsidecontent_template.types.brightsidedownloads.addItems {
+	0 = Downloads 1
+	1 = Downloads 2
 }
 
 TCEFORM.tt_content.tx_brightsidecontent_cropratiothumb.addItems {

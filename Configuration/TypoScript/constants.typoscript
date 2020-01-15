@@ -1,7 +1,9 @@
 # cat=Brightsidecontent/brightsidecontent; type=string; label= Styles file
-	brightsidegallery.styles = EXT:brightsidecontent/Resources/Public/Styles/brightsidegallery.css
+	brightsidecontent.gallery.styles = EXT:brightsidecontent/Resources/Public/Styles/gallery.css
 # cat=Brightsidecontent/brightsidecontent; type=string; label= Styles file
-	brightsideslide.styles = EXT:brightsidecontent/Resources/Public/Styles/brightsideslide.css
+	brightsidecontent.slide.styles = EXT:brightsidecontent/Resources/Public/Styles/sideslide.css
+# cat=Brightsidecontent/brightsidecontent; type=string; label= Styles file
+	brightsidecontent.downloads.styles = EXT:brightsidecontent/Resources/Public/Styles/downloads.css
 # cat=Brightsidecontent/brightsidecontent; type=string; label= Templates root paht
 	brightsidecontent.templateRootPaths = EXT:brightsidecontent/Resources/Private/Templates/
 # cat=Brightsidecontent/brightsidecontent; type=string; label= Partials root paht

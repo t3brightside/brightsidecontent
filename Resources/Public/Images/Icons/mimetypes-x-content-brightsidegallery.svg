@@ -1,1 +1,22 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#999;}.cls-3{fill:#639;}</style></defs><title>mimetypes-x-content-gallerycontent</title><path class="cls-1" d="M1,1H15V15H1Z"/><path class="cls-2" d="M1,1V15H15V1ZM2,2H14V14H2Z"/><path class="cls-3" d="M3,10.23H5.71v2.71H3Z"/><path class="cls-3" d="M3,6.57H5.71V9.28H3Z"/><path class="cls-3" d="M3,3H5.71V5.71H3Z"/><path class="cls-3" d="M6.64,6.57H9.36V9.28H6.64Z"/><path class="cls-3" d="M6.64,3H9.36V5.71H6.64Z"/><path class="cls-3" d="M6.64,10.23H9.36v2.71H6.64Z"/><path class="cls-3" d="M10.29,6.57H13V9.28H10.29Z"/><path class="cls-3" d="M10.29,3H13V5.71H10.29Z"/><path class="cls-3" d="M10.29,10.23H13v2.71H10.29Z"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#999999;}
+	.st2{fill:#663399;}
+</style>
+<title>mimetypes-x-content-gallerycontent</title>
+<path class="st0" d="M1,1h14v14H1V1z"/>
+<path class="st1" d="M1,1v14h14V1H1z M2,2h12v12H2V2z"/>
+<path class="st2" d="M3,10.2h2.7v2.7H3V10.2z"/>
+<path class="st2" d="M3,6.6h2.7v2.7H3V6.6z"/>
+<path class="st2" d="M3,3h2.7v2.7H3V3z"/>
+<path class="st2" d="M6.6,6.6h2.7v2.7H6.6V6.6z"/>
+<path class="st2" d="M6.6,3h2.7v2.7H6.6V3z"/>
+<path class="st2" d="M6.6,10.2h2.7v2.7H6.6V10.2z"/>
+<path class="st2" d="M10.3,6.6H13v2.7h-2.7V6.6z"/>
+<path class="st2" d="M10.3,3H13v2.7h-2.7V3z"/>
+<path class="st2" d="M10.3,10.2H13v2.7h-2.7V10.2z"/>
+</svg>

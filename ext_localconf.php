@@ -12,6 +12,11 @@
 		\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
 		['source' => 'EXT:brightsidecontent/Resources/Public/Images/Icons/mimetypes-x-content-brightsideslide.svg']
 	);
+	$iconRegistry->registerIcon(
+		'mimetypes-x-content-brightsidedownloads',
+		\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+		['source' => 'EXT:brightsidecontent/Resources/Public/Images/Icons/mimetypes-x-content-brightsidedownloads.svg']
+	);
 
 #	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['brightsidegallery'] = \Brightside\Brightsidegallery\Hooks\PageLayoutView\ContentElementPreviewRenderer::class;
 #	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['brightsideslide'] = \Brightside\Brightsidegallery\Hooks\PageLayoutView\ContentElementPreviewRenderer::class;

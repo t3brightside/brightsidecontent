@@ -1,14 +1,9 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 	<f:layout name="Default" />
 	<f:section name="Main">
-
-		<div
-			class="brightsideslide template-{data.tx_gallerycontent_template}"
-			style='background-image: url(<f:uri.image image="{assets.0}" cropVariant="slide" width="2300" />);'
-		>
+		<div class="brightsidecard template-{data.tx_gallerycontent_template}">
 			<div class="content">
-				<b class="title">{data.header}</b>
-				<h1 class="subtitle">{data.subheader}</h1>
+				<h1>{data.header}</h1>
 				<div class="text"><f:format.raw>{data.bodytext}</f:format.raw></div>
 				<f:link.typolink parameter="{data.tx_brightsidecontent_link}" class="btn">MEHR ERFAHREN</f:link.typolink>
 			</div>
