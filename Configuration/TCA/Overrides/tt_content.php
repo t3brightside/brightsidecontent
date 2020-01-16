@@ -332,6 +332,7 @@
         --linebreak--,bodytext,
         --linebreak--,tx_brightsidecontent_template,
         --linebreak--,assets,
+        --linebreak--,imageorient,
     ';
 
     // Configure the default backend fields for the downloads content element

@@ -1,12 +1,15 @@
 page.includeCSS.brightsidecontentgallery = {$brightsidecontent.gallery.styles}
 page.includeCSS.brightsidecontentslide = {$brightsidecontent.slide.styles}
 page.includeCSS.brightsidecontentdownloads = {$brightsidecontent.downloads.styles}
+page.includeCSS.brightsidecontentcard = {$brightsidecontent.card.styles}
 
 lib.brightsidecontent =< lib.contentElement
 lib.brightsidecontent.templateRootPaths.10 = EXT:brightsidecontent/Resources/Private/Templates/
-lib.brightsidecontent.templateRootPaths.20 = {$brightsidecontent.templateRootPaths}
+lib.brightsidecontent.templateRootPaths.20 = {$brightsidecontent.templateRootPath}
 lib.brightsidecontent.partialRootPaths.10 = EXT:brightsidecontent/Resources/Private/Partials/
-lib.brightsidecontent.partialRootPaths.20 = {$brightsidecontent.partialRootPaths}
+lib.brightsidecontent.partialRootPaths.20 = {$brightsidecontent.partialRootPath}
+lib.brightsidecontent.layoutRootPaths.10 = EXT:brightsidecontent/Resources/Private/Layouts/
+lib.brightsidecontent.layoutRootPaths.20 = {$brightsidecontent.layoutRootPath}
 
 tt_content.brightsidegallery =< lib.brightsidecontent
 tt_content.brightsidegallery {

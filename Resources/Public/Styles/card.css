@@ -1,0 +1,29 @@
+/* Card view */
+.brightsidecard {
+  width: 100%;
+  float: left;
+  background-color: #F2F2F2;
+}
+.brightsidecard h1, .brightsidecard h2 {
+    text-align: left !important;
+}
+.brightsidecard img {
+  width: 50%;
+  height: auto;
+}
+.brightsidecard .text {
+    padding: 2.75rem;
+    width: 50%;
+}
+
+.brightsidecard.imageorient-25 img {
+    float: right;
+}
+
+.brightsidecard.imageorient-26 img {
+    float: none;
+}
+
+.brightsidecard.imageorient-26 .text {
+    float: right;
+}

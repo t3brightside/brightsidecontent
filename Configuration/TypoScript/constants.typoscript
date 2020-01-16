@@ -4,7 +4,11 @@
 	brightsidecontent.slide.styles = EXT:brightsidecontent/Resources/Public/Styles/sideslide.css
 # cat=Brightsidecontent/brightsidecontent; type=string; label= Styles file
 	brightsidecontent.downloads.styles = EXT:brightsidecontent/Resources/Public/Styles/downloads.css
+# cat=Brightsidecontent/brightsidecontent; type=string; label= Styles file
+	brightsidecontent.card.styles = EXT:brightsidecontent/Resources/Public/Styles/card.css
 # cat=Brightsidecontent/brightsidecontent; type=string; label= Templates root paht
-	brightsidecontent.templateRootPaths = EXT:brightsidecontent/Resources/Private/Templates/
+	brightsidecontent.templateRootPath = EXT:brightsidecontent/Resources/Private/Templates/
 # cat=Brightsidecontent/brightsidecontent; type=string; label= Partials root paht
-	brightsidecontent.partialRootPaths = EXT:brightsidecontent/Resources/Private/Partials/
+	brightsidecontent.partialRootPath = EXT:brightsidecontent/Resources/Private/Partials/
+# cat=Brightsidecontent/brightsidecontent; type=string; label= Layouts root paht
+	brightsidecontent.layoutRootPath = EXT:brightsidecontent/Resources/Private/Layouts/

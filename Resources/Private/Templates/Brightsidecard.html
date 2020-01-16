@@ -1,11 +1,17 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-	<f:layout name="Default" />
+	<f:layout name="NoHeader" />
 	<f:section name="Main">
-		<div class="brightsidecard template-{data.tx_gallerycontent_template}">
-			<div class="content">
+		<div class="brightsidecard imageorient-{data.imageorient} template-{data.tx_gallerycontent_template}">
+			<f:image image="{assets.0}" class="image"
+				cropVariant="{data.tx_brightsidecontent_cropratiothumb}"
+				width="500"
+				alt="{f:if(condition:'{assets.0.properties.alternative}', then:'{assets.0.properties.alternative -> f:format.stripTags()}', else:'{assets.0.properties.title -> f:format.stripTags()}')}"
+				additionalAttributes="{srcset: '{f:uri.image(image:\'{assets.0}\', cropVariant:\'{data.tx_brightsidecontent_cropratiothumb}\', width:\'1000\')}'}"
+				title="{assets.0.properties.title -> f:format.stripTags()}"
+			/>
+			<div class="text ce-bodytext">
 				<h1>{data.header}</h1>
-				<div class="text"><f:format.raw>{data.bodytext}</f:format.raw></div>
-				<f:link.typolink parameter="{data.tx_brightsidecontent_link}" class="btn">MEHR ERFAHREN</f:link.typolink>
+				<f:format.html>{data.bodytext}</f:format.html>
 			</div>
 		</div>
 	</f:section>
