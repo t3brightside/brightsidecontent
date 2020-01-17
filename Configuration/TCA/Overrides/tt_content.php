@@ -4,6 +4,7 @@
   call_user_func(function () {
       $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['brightsidegallery'] =  'mimetypes-x-content-brightsidegallery';
       $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['brightsideslide'] =  'mimetypes-x-content-brightsideslide';
+      $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['brightsidedownloads'] =  'mimetypes-x-content-brightsidecard';
       $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['brightsidedownloads'] =  'mimetypes-x-content-brightsidedownloads';
 
       \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
@@ -142,16 +143,6 @@
             'size' => 50,
             'max' => 255,
         ],
-    ];
-
-    $GLOBALS['TCA']['tt_content']['columns']['bodytext'] = [
-       'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.text',
-       'config' => [
-          'type' => 'text',
-          'cols' => 48,
-          'rows' => 4,
-          'enableRichtext' => true,
-      ]
     ];
 
     $GLOBALS['TCA']['tt_content']['columns']['assets']['config']['overrideChildTca']['columns']['crop'] = [
@@ -293,7 +284,7 @@
                rowDescription,
              --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
              --div--;LLL:EXT:gridelements/Resources/Private/Language/locallang_db.xlf:gridElements, tx_gridelements_container, tx_gridelements_columns
-    ');
+        ');
 
     $GLOBALS['TCA']['tt_content']['palettes']['brightsideslideSettings']['showitem'] = '
         header,
@@ -324,7 +315,15 @@
                rowDescription,
              --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
              --div--;LLL:EXT:gridelements/Resources/Private/Language/locallang_db.xlf:gridElements, tx_gridelements_container, tx_gridelements_columns
-    ');
+    ',
+    'columnsOverrides' => [
+        'bodytext' => [
+            'config' => [
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default'
+            ]
+        ]
+    ]);
 
     $GLOBALS['TCA']['tt_content']['palettes']['brightsidecardSettings']['showitem'] = '
         header,

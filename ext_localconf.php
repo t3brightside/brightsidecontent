@@ -13,6 +13,11 @@
 		['source' => 'EXT:brightsidecontent/Resources/Public/Images/Icons/mimetypes-x-content-brightsideslide.svg']
 	);
 	$iconRegistry->registerIcon(
+		'mimetypes-x-content-brightsidecard',
+		\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+		['source' => 'EXT:brightsidecontent/Resources/Public/Images/Icons/mimetypes-x-content-brightsidecard.svg']
+	);
+	$iconRegistry->registerIcon(
 		'mimetypes-x-content-brightsidedownloads',
 		\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
 		['source' => 'EXT:brightsidecontent/Resources/Public/Images/Icons/mimetypes-x-content-brightsidedownloads.svg']
