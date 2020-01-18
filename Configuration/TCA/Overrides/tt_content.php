@@ -4,7 +4,7 @@
   call_user_func(function () {
       $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['brightsidegallery'] =  'mimetypes-x-content-brightsidegallery';
       $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['brightsideslide'] =  'mimetypes-x-content-brightsideslide';
-      $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['brightsidedownloads'] =  'mimetypes-x-content-brightsidecard';
+      $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['brightsidecard'] =  'mimetypes-x-content-brightsidecard';
       $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['brightsidedownloads'] =  'mimetypes-x-content-brightsidedownloads';
 
       \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
