@@ -8,8 +8,9 @@ lib.brightsidecontent.templateRootPaths.10 = EXT:brightsidecontent/Resources/Pri
 lib.brightsidecontent.templateRootPaths.20 = {$brightsidecontent.templateRootPath}
 lib.brightsidecontent.partialRootPaths.10 = EXT:brightsidecontent/Resources/Private/Partials/
 lib.brightsidecontent.partialRootPaths.20 = {$brightsidecontent.partialRootPath}
-lib.brightsidecontent.layoutRootPaths.10 = EXT:brightsidecontent/Resources/Private/Layouts/
-lib.brightsidecontent.layoutRootPaths.20 = {$brightsidecontent.layoutRootPath}
+lib.brightsidecontent.layoutRootPaths.10 = EXT:fluid_styled_content/Resources/Private/Layouts/
+lib.brightsidecontent.layoutRootPaths.20 = EXT:brightsidecontent/Resources/Private/Layouts/
+lib.brightsidecontent.layoutRootPaths.30 = {$styles.templates.layoutRootPath}
 
 tt_content.brightsidegallery =< lib.brightsidecontent
 tt_content.brightsidegallery {

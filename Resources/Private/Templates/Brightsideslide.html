@@ -9,7 +9,14 @@
 				<b class="title">{data.header}</b>
 				<h1 class="subtitle">{data.subheader}</h1>
 				<div class="text"><f:format.raw>{data.bodytext}</f:format.raw></div>
-				<f:link.typolink parameter="{data.tx_brightsidecontent_link}" class="btn">MEHR ERFAHREN</f:link.typolink>
+				<f:if condition="{data.tx_brightsidecontent_link}">
+					<f:link.typolink parameter="{data.tx_brightsidecontent_link}" class="btn">
+						<f:if condition="{data.tx_brightsidecontent_linktext}">
+							<f:then>{data.tx_brightsidecontent_linktext}</f:then>
+							<f:else>MEHR ERFAHREN</f:else>
+						</f:if>
+					</f:link.typolink>
+				</f:if>
 			</div>
 		</div>
 	</f:section>
