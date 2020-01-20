@@ -10,6 +10,7 @@
 .brightsidecard img {
   width: 50%;
   height: auto;
+  display: block;
 }
 .brightsidecard .text {
     padding: 2.75rem;
@@ -21,7 +22,7 @@
 }
 
 .brightsidecard.imageorient-26 img {
-    float: none;
+    float: left;
 }
 
 .brightsidecard.imageorient-26 .text {
