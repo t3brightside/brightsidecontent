@@ -7,3 +7,7 @@ CREATE TABLE tt_content (
     tx_brightsidecontent_link tinytext,
     tx_brightsidecontent_linktext tinytext,
 );
+
+CREATE TABLE sys_file_reference (
+    tx_brightsidecontent_bgplacement tinytext,
+);

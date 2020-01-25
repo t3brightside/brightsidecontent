@@ -55,6 +55,29 @@
     'after'
   );
 
+  $bgImagePlacement = [
+  	'tx_brightsidecontent_bgplacement' => [
+  	    'exclude' => 1,
+  	    'label' => 'Image Placement on Screen Resize',
+  	    'config' => [
+  	    	'type' => 'select',
+  			'renderType' => 'selectSingle',
+  			'items' => [
+  				['Top center', 'center top'],
+  				['Top  left', 'left top'],
+  				['Top right', 'right top'],
+  				['Center center', 'center center'],
+  				['Center left', 'left center'],
+  				['Center right', 'right center'],
+  				['Bottom center', 'center bottom'],
+  				['Bottom left', 'left bottom'],
+  				['Bottom right', 'right bottom'],
+  			],
+      	],
+    ],
+  ];
+  \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('sys_file_reference',$bgImagePlacement,1);
+
     $GLOBALS['TCA']['tt_content']['columns']['tx_brightsidecontent_template'] = [
         'exclude' => 1,
         'label'   => 'Template',
@@ -144,7 +167,7 @@
             'max' => 255,
         ],
     ];
-
+/*
     $GLOBALS['TCA']['tt_content']['columns']['assets']['config']['overrideChildTca']['columns']['crop'] = [
         'config' => [
             'cropVariants' => [
@@ -233,7 +256,7 @@
             ],
         ],
     ];
-
+*/
     // Configure the default backend fields for the gallery content element
     $GLOBALS['TCA']['tt_content']['types']['brightsidegallery'] = array(
        'showitem' => '
@@ -256,7 +279,107 @@
                rowDescription,
              --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
              --div--;LLL:EXT:gridelements/Resources/Private/Language/locallang_db.xlf:gridElements, tx_gridelements_container, tx_gridelements_columns
-    ');
+    ',
+    'columnsOverrides' => [
+        'assets' => [
+            'exclude' => 1,
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                'assets',
+                [
+                    'behaviour' => [
+                        'allowLanguageSynchronization' => true,
+                    ],
+                    // custom configuration for displaying fields in the overlay/reference table
+                    // to use the image overlay palette instead of the basic overlay palette
+                    'overrideChildTca' => [
+                        'columns' => [
+                            'crop' => [
+                            'config' => [
+                                'cropVariants' => [
+
+                                    'default' => [
+                                        'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_wizards.xlf:imwizard.crop_variant.default',
+                                        'allowedAspectRatios' => [
+                                            '16:9' => [
+                                                'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',
+                                                'value' => 16 / 9
+                                            ],
+                                            '3:2' => [
+                                                'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.3_2',
+                                                'value' => 3 / 2
+                                            ],
+                                            '4:3' => [
+                                                'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.4_3',
+                                                'value' => 4 / 3
+                                            ],
+                                            '1:1' => [
+                                                'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.1_1',
+                                                'value' => 1.0
+                                            ],
+                                            'NaN' => [
+                                                'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
+                                                'value' => 0.0
+                                            ],
+                                        ],
+                                        'selectedRatio' => 'NaN',
+                                        'cropArea' => [
+                                            'x' => 0.0,
+                                            'y' => 0.0,
+                                            'width' => 1.0,
+                                            'height' => 1.0,
+                                        ],
+                                    ],
+                                    'landscape' => [
+                                        'title' => 'Landscape',
+                                        'selectedRatio' => '5:3',
+                                        'allowedAspectRatios' => [
+                                            '5:3' => [
+                                                'title' => 'Landscape',
+                                                'value' => 5 / 3,
+                                            ],
+                                        ],
+                                    ],
+                                    'square' => [
+                                        'title' => 'Square',
+                                        'selectedRatio' => '1:1',
+                                        'allowedAspectRatios' => [
+                                            '1:1' => [
+                                                'title' => 'Square',
+                                                'value' => 1 / 1,
+                                            ],
+                                        ],
+                                    ],
+                                    'portrait' => [
+                                        'title' => 'Portrait',
+                                        'selectedRatio' => '3:4',
+                                        'allowedAspectRatios' => [
+                                            '3:4' => [
+                                                'title' => 'Portrait',
+                                                'value' => 3 / 4,
+                                            ],
+                                        ],
+                                    ],
+                                    'tower' => [
+                                        'title' => 'Tower',
+                                        'selectedRatio' => '9:16',
+                                        'allowedAspectRatios' => [
+                                            '9:16' => [
+                                                'title' => 'Tower',
+                                                'value' => 9 / 16,
+                                            ],
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+
+                    ],
+                ],
+                'jpg,png'
+            ),
+            ],
+        ]);
 
     $GLOBALS['TCA']['tt_content']['palettes']['brightsidegallerySettings']['showitem'] = '
         tx_brightsidecontent_template,tx_brightsidecontent_cropratiothumb,
@@ -284,14 +407,70 @@
                rowDescription,
              --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
              --div--;LLL:EXT:gridelements/Resources/Private/Language/locallang_db.xlf:gridElements, tx_gridelements_container, tx_gridelements_columns
-        ');
+        ',
+        'columnsOverrides' => [
+            'bodytext' => [
+                'config' => [
+                    'enableRichtext' => true,
+                    'richtextConfiguration' => 'default'
+                ]
+            ],
+      		'assets' => [
+      			'label' => 'Page Image (header, page lists, etc)',
+      			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+      				'assets',
+     [
+      					'behaviour' => [
+      						'allowLanguageSynchronization' => true,
+      					],
+      					// custom configuration for displaying fields in the overlay/reference table
+      					// to use the image overlay palette instead of the basic overlay palette
+      					'overrideChildTca' => [
+      						'types' => [
+      							'0' => [
+      								'showitem' => '
+      									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+      									--palette--;;filePalette'
+      							],
+      							\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+      								'showitem' => '
+      									tx_brightsidecontent_bgplacement,crop,
+      			            			--palette--;;filePalette'
+      							],
+      						],
+                            'columns' => [
+                                'crop' => [
+                                'config' => [
+                                    'cropVariants' => [
+
+                                        'slide' => [
+                                            'title' => 'Slide',
+                                            'selectedRatio' => '190:77',
+                                            'allowedAspectRatios' => [
+                                                '190:77' => [
+                                                    'title' => 'Slide',
+                                                    'value' => 190 / 77,
+                                                ],
+                                            ],
+                                        ],
+                                    ],
+                                ],
+                            ],
+                      	],
+
+      					],
+      				],
+      				'jpg,png'
+      			),
+            ],
+        ]);
 
     $GLOBALS['TCA']['tt_content']['palettes']['brightsideslideSettings']['showitem'] = '
         header,
         --linebreak--,subheader,
         --linebreak--,bodytext,
         --linebreak--,tx_brightsidecontent_link,tx_brightsidecontent_linktext,
-        --linebreak--,assets,
+        --linebreak--,assetssetup,assets,
     ';
 
     // Configure the default backend fields for the slide content element
@@ -322,7 +501,43 @@
                 'enableRichtext' => true,
                 'richtextConfiguration' => 'default'
             ]
-        ]
+        ],
+        'assets' => [
+            'label' => 'Card Image',
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                'assets',
+ [
+                    'behaviour' => [
+                        'allowLanguageSynchronization' => true,
+                    ],
+                    // custom configuration for displaying fields in the overlay/reference table
+                    // to use the image overlay palette instead of the basic overlay palette
+                    'overrideChildTca' => [
+                        'columns' => [
+                            'crop' => [
+                            'config' => [
+                                'cropVariants' => [
+
+                                    'slide' => [
+                                        'title' => 'Card',
+                                        'selectedRatio' => '720:400',
+                                        'allowedAspectRatios' => [
+                                            '720:400' => [
+                                                'title' => 'Card',
+                                                'value' => 720 / 400,
+                                            ],
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+
+                    ],
+                ],
+                'jpg,png'
+            ),
+        ],
     ]);
 
     $GLOBALS['TCA']['tt_content']['palettes']['brightsidecardSettings']['showitem'] = '

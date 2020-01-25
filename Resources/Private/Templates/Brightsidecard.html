@@ -3,10 +3,10 @@
 	<f:section name="Main">
 		<div class="brightsidecard imageorient-{data.imageorient} template-{data.tx_gallerycontent_template}">
 			<f:image image="{assets.0}" class="image"
-				cropVariant="{data.tx_brightsidecontent_cropratiothumb}"
-				width="500"
+				cropVariant="card"
+				width="720"
 				alt="{f:if(condition:'{assets.0.properties.alternative}', then:'{assets.0.properties.alternative -> f:format.stripTags()}', else:'{assets.0.properties.title -> f:format.stripTags()}')}"
-				additionalAttributes="{srcset: '{f:uri.image(image:\'{assets.0}\', cropVariant:\'{data.tx_brightsidecontent_cropratiothumb}\', width:\'1000\')}'}"
+				additionalAttributes="{srcset: '{f:uri.image(image:\'{assets.0}\', cropVariant:\'card\', width:\'1480\')}'}"
 				title="{assets.0.properties.title -> f:format.stripTags()}"
 			/>
 			<div class="text ce-bodytext">
