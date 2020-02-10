@@ -1,5 +1,5 @@
 <?php
-namespace Brightside\Gallerycontent\Hooks\PageLayoutView;
+namespace Brightside\Brightsidecontent\Hooks\PageLayoutView;
 
 use \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
 use \TYPO3\CMS\Backend\View\PageLayoutView;
@@ -29,21 +29,47 @@ class ContentElementPreviewRenderer implements PageLayoutViewDrawItemHookInterfa
                 }
             }
 			$itemContent .= '<ul style="margin: 0; margin-top: 0.5em; padding: 0.2em 1.4em;">';
-        	#	$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText('Template: ' . $row['tx_brightsidecontent_template']), $row) . '</li>';
-				if ($row['tx_brightsidecontent_showtitle'] === 1) {
-					$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText('Show titles: yes'), $row) . '</li>';
-				}
-				if ($row['tx_brightsidecontent_showdesc'] === 1) {
-					$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText('Show descriptions: yes'), $row) . '</li>';
-				}
-				$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText('Thumbnail crop: ' . $row['tx_brightsidecontent_cropratiothumb']), $row) . '</li>';
-				if ($row['image_zoom'] === 1) {
-					$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText('Click-enlarge: yes'), $row) . '</li>';
-				}
-				if ($row['image_zoom'] === 1) {
-					$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText('Click-enlarge crop: ' . $row['tx_brightsidecontent_cropratiozoom']), $row) . '</li>';
-				}
+    		$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText('Template: ' . $row['tx_brightsidecontent_template']), $row) . '</li>';
+			if ($row['tx_brightsidecontent_showtitle'] === 1) {
+				$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText('Show titles: yes'), $row) . '</li>';
+			}
+			if ($row['tx_brightsidecontent_showdesc'] === 1) {
+				$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText('Show descriptions: yes'), $row) . '</li>';
+			}
+			$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText('Thumbnail crop: ' . $row['tx_brightsidecontent_cropratiothumb']), $row) . '</li>';
+			if ($row['image_zoom'] === 1) {
+				$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText('Click-enlarge: yes'), $row) . '</li>';
+			}
+			if ($row['image_zoom'] === 1) {
+				$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText('Click-enlarge crop: ' . $row['tx_brightsidecontent_cropratiozoom']), $row) . '</li>';
+			}
 			$itemContent .= '</ul>';
+			$drawItem = FALSE;
+		}
+		if ($row['CType'] === 'brightsideslide') {
+			$itemContent .= '' . $parentObject->linkEditContent($parentObject->renderText('' . $row['subheader']), $row) . '<br />';
+			$itemContent .= '' . $parentObject->linkEditContent($parentObject->renderText('' . $row['bodytext']), $row) . '<br />';
+			if ($row['assets']) {
+                $itemContent .= $parentObject->linkEditContent($parentObject->getThumbCodeUnlinked($row, 'tt_content', 'assets'), $row);
+                $fileReferences = \TYPO3\CMS\Backend\Utility\BackendUtility::resolveFileReferences('tt_content', 'assets', $row);
+                if (!empty($fileReferences)) {
+                    $linkedContent = '';
+                    $itemContent .= $parentObject->linkEditContent($linkedContent, $row);
+                    unset($linkedContent);
+                }
+            }
+			$drawItem = FALSE;
+		}
+		if ($row['CType'] === 'brightsidedownloads') {
+			if ($row['media']) {
+                $itemContent .= $parentObject->linkEditContent($parentObject->getThumbCodeUnlinked($row, 'tt_content', 'media'), $row);
+                $fileReferences = \TYPO3\CMS\Backend\Utility\BackendUtility::resolveFileReferences('tt_content', 'media', $row);
+                if (!empty($fileReferences)) {
+                    $linkedContent = '';
+                    $itemContent .= $parentObject->linkEditContent($linkedContent, $row);
+                    unset($linkedContent);
+                }
+            }
 			$drawItem = FALSE;
 		}
 	}

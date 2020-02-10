@@ -282,7 +282,6 @@
     ',
     'columnsOverrides' => [
         'assets' => [
-            'exclude' => 1,
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'assets',
                 [

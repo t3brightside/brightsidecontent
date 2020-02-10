@@ -23,5 +23,5 @@
 		['source' => 'EXT:brightsidecontent/Resources/Public/Images/Icons/mimetypes-x-content-brightsidedownloads.svg']
 	);
 
-#	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['brightsidegallery'] = \Brightside\Brightsidegallery\Hooks\PageLayoutView\ContentElementPreviewRenderer::class;
+	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['brightsidegallery'] = \Brightside\Brightsidecontent\Hooks\PageLayoutView\ContentElementPreviewRenderer::class;
 #	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['brightsideslide'] = \Brightside\Brightsidegallery\Hooks\PageLayoutView\ContentElementPreviewRenderer::class;
